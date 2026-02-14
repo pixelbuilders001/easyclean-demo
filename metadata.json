@@ -1,0 +1,7 @@
+{
+  "name": "CleanSwift - Premium Laundry & Dry Cleaning",
+  "description": "A modern, mobile-first dry cleaning and laundry service platform for the Indian market, featuring pickup scheduling, order tracking, and a seamless booking experience.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
