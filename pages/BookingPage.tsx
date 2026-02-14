@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useApp } from '../AppContext';
 
@@ -47,7 +46,7 @@ const BookingPage: React.FC = () => {
               required
               type="text" 
               placeholder="Full Name" 
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-400"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:border-blue-400"
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
             />
@@ -55,7 +54,7 @@ const BookingPage: React.FC = () => {
               required
               type="tel" 
               placeholder="Mobile Number" 
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-400"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:border-blue-400"
               value={formData.mobile}
               onChange={(e) => setFormData({...formData, mobile: e.target.value})}
             />
@@ -70,7 +69,7 @@ const BookingPage: React.FC = () => {
             <textarea 
               required
               placeholder="House/Flat No, Street, Landmark" 
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-400 min-h-[80px]"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:border-blue-400 min-h-[80px]"
               value={formData.address}
               onChange={(e) => setFormData({...formData, address: e.target.value})}
             ></textarea>
@@ -78,7 +77,7 @@ const BookingPage: React.FC = () => {
               required
               type="text" 
               placeholder="Pincode" 
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-400"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:border-blue-400"
               value={formData.pincode}
               onChange={(e) => setFormData({...formData, pincode: e.target.value})}
             />
@@ -92,7 +91,7 @@ const BookingPage: React.FC = () => {
           <div className="space-y-3">
             <input 
               type="date" 
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-400"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:border-blue-400"
               value={formData.pickupDate}
               onChange={(e) => setFormData({...formData, pickupDate: e.target.value})}
             />

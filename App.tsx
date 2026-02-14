@@ -10,6 +10,8 @@ import BookingPage from './pages/BookingPage';
 import PaymentPage from './pages/PaymentPage';
 import ConfirmationPage from './pages/ConfirmationPage';
 import TrackOrderPage from './pages/TrackOrderPage';
+import AdminLoginPage from './pages/AdminLoginPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
 
 const AppContent: React.FC = () => {
   const { currentView } = useApp();
@@ -23,6 +25,8 @@ const AppContent: React.FC = () => {
       case 'PAYMENT': return <PaymentPage />;
       case 'CONFIRMATION': return <ConfirmationPage />;
       case 'TRACK': return <TrackOrderPage />;
+      case 'ADMIN_LOGIN': return <AdminLoginPage />;
+      case 'ADMIN_DASHBOARD': return <AdminDashboardPage />;
       default: return <HomePage />;
     }
   };

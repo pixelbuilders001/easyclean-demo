@@ -23,16 +23,17 @@ export interface CartItem extends ServiceItem {
 
 export interface Order {
   id: string;
-  items: CartItem[];
+  items?: CartItem[];
   customerName: string;
   mobile: string;
-  address: string;
+  address?: string;
   pickupDate: string;
   pickupSlot: string;
-  deliveryType: 'Standard' | 'Express';
+  deliveryType?: 'Standard' | 'Express';
+  serviceType?: string; // For admin manual entry
   totalAmount: number;
   status: 'Pickup Scheduled' | 'Picked Up' | 'In Cleaning' | 'Ready' | 'Out for Delivery' | 'Delivered';
   createdAt: string;
 }
 
-export type View = 'HOME' | 'CATEGORY' | 'CART' | 'BOOKING' | 'PAYMENT' | 'CONFIRMATION' | 'TRACK';
+export type View = 'HOME' | 'CATEGORY' | 'CART' | 'BOOKING' | 'PAYMENT' | 'CONFIRMATION' | 'TRACK' | 'ADMIN_LOGIN' | 'ADMIN_DASHBOARD';

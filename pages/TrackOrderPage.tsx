@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useApp } from '../AppContext';
 
@@ -32,7 +31,7 @@ const TrackOrderPage: React.FC = () => {
           <input 
             type="text" 
             placeholder="e.g. CS-8421 or 98765..." 
-            className="flex-grow px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-400"
+            className="flex-grow px-4 py-3 rounded-xl border border-slate-200 text-slate-800 focus:outline-none focus:border-blue-400"
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
           />

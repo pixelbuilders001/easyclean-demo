@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import { useApp } from '../AppContext';
+// Added Order type import
+import { Order } from '../types';
 
 const PaymentPage: React.FC = () => {
   const { setView, cart, addOrder, clearCart } = useApp();
@@ -14,7 +16,8 @@ const PaymentPage: React.FC = () => {
     setIsProcessing(true);
     setTimeout(() => {
       const orderId = 'CS-' + Math.floor(1000 + Math.random() * 9000);
-      const newOrder = {
+      // Added explicit typing to newOrder to ensure the 'status' property matches the Order interface
+      const newOrder: Order = {
         id: orderId,
         items: [...cart],
         totalAmount: total,

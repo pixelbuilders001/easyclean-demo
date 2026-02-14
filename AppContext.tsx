@@ -13,10 +13,12 @@ interface AppContextType {
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, delta: number) => void;
   clearCart: () => void;
-  orders: any[];
-  addOrder: (order: any) => void;
-  lastOrder: any | null;
-  setLastOrder: (order: any) => void;
+  orders: Order[];
+  addOrder: (order: Order) => void;
+  updateOrderStatus: (id: string, status: Order['status']) => void;
+  deleteOrder: (id: string) => void;
+  lastOrder: Order | null;
+  setLastOrder: (order: Order) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -25,8 +27,8 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const [currentView, setView] = useState<View>('HOME');
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [orders, setOrders] = useState<any[]>(MOCK_ORDERS);
-  const [lastOrder, setLastOrder] = useState<any | null>(null);
+  const [orders, setOrders] = useState<Order[]>(MOCK_ORDERS as any);
+  const [lastOrder, setLastOrder] = useState<Order | null>(null);
 
   const addToCart = (item: ServiceItem) => {
     setCart(prev => {
@@ -54,9 +56,17 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   const clearCart = () => setCart([]);
 
-  const addOrder = (order: any) => {
+  const addOrder = (order: Order) => {
     setOrders(prev => [order, ...prev]);
     setLastOrder(order);
+  };
+
+  const updateOrderStatus = (id: string, status: Order['status']) => {
+    setOrders(prev => prev.map(o => o.id === id ? { ...o, status } : o));
+  };
+
+  const deleteOrder = (id: string) => {
+    setOrders(prev => prev.filter(o => o.id !== id));
   };
 
   return (
@@ -64,7 +74,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
       currentView, setView,
       selectedCategory, setSelectedCategory,
       cart, addToCart, removeFromCart, updateQuantity, clearCart,
-      orders, addOrder,
+      orders, addOrder, updateOrderStatus, deleteOrder,
       lastOrder, setLastOrder
     }}>
       {children}
